@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-02-12T09:06:30.986661Z",
+  "target": "/data/repos/bxs-awesome-skills/proposals/skill-security-audit",
+  "verdict": "BLOCK",
+  "score": 0,
+  "high_risk_count": 3,
+  "review_count": 1,
+  "findings": [
+    {
+      "rule_id": "BLK_DANGEROUS_SHELL",
+      "severity": "BLOCK",
+      "file_path": "PROPOSAL.md",
+      "line_start": 41,
+      "line_end": 41,
+      "evidence_snippet": "- 明示执行高危命令（如 `curl|bash`, `rm -rf /`, 任意 sudo 批量操作）",
+      "fix_hint": "High-risk shell execution pattern"
+    },
+    {
+      "rule_id": "REV_UNBOUNDED_NETWORK",
+      "severity": "REVIEW",
+      "file_path": "draft/references/evidence-schema.json",
+      "line_start": 2,
+      "line_end": 2,
+      "evidence_snippet": "  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",",
+      "fix_hint": "Network usage requires explicit justification"
+    },
+    {
+      "rule_id": "BLK_PROMPT_BYPASS",
+      "severity": "BLOCK",
+      "file_path": "draft/references/security-rules.json",
+      "line_start": 6,
+      "line_end": 6,
+      "evidence_snippet": "      \"pattern\": \"(?i)(ignore (all|previous) instructions|bypass (safety|security)|disable safeguard)\",",
+      "fix_hint": "Prompt injection / policy bypass instruction"
+    },
+    {
+      "rule_id": "BLK_SECRET_EXFIL",
+      "severity": "BLOCK",
+      "file_path": "draft/references/security-rules.json",
+      "line_start": 18,
+      "line_end": 18,
+      "evidence_snippet": "      \"pattern\": \"(?i)(send|upload|post).*(token|cookie|secret|private key)\",",
+      "fix_hint": "Potential secret exfiltration"
+    }
+  ]
+}
