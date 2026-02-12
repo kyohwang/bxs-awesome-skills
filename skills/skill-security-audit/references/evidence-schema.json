@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "skill-security-audit evidence",
+  "type": "object",
+  "required": ["rule_id", "severity", "file_path", "line_start", "line_end", "evidence_snippet", "fix_hint"],
+  "properties": {
+    "rule_id": {"type": "string"},
+    "severity": {"type": "string", "enum": ["BLOCK", "REVIEW"]},
+    "file_path": {"type": "string"},
+    "line_start": {"type": "integer", "minimum": 1},
+    "line_end": {"type": "integer", "minimum": 1},
+    "evidence_snippet": {"type": "string"},
+    "fix_hint": {"type": "string"}
+  }
+}

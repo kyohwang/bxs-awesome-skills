@@ -1,0 +1,37 @@
+{
+  "version": "0.1",
+  "block": [
+    {
+      "id": "BLK_PROMPT_BYPASS",
+      "pattern": "(?i)(ignore (all|previous) instructions|bypass (safety|security)|disable safeguard)",
+      "target": ["SKILL.md", "scripts", "references"],
+      "reason": "Prompt injection / policy bypass instruction"
+    },
+    {
+      "id": "BLK_DANGEROUS_SHELL",
+      "pattern": "(curl\\s+[^\\n]*\\|\\s*(bash|sh))|(rm\\s+-rf\\s+/)|(sudo\\s+.*)",
+      "target": ["scripts", "references", "SKILL.md"],
+      "reason": "High-risk shell execution pattern"
+    },
+    {
+      "id": "BLK_SECRET_EXFIL",
+      "pattern": "(?i)(send|upload|post).*(token|cookie|secret|private key)",
+      "target": ["scripts", "references", "SKILL.md"],
+      "reason": "Potential secret exfiltration"
+    }
+  ],
+  "review": [
+    {
+      "id": "REV_UNBOUNDED_NETWORK",
+      "pattern": "(?i)(http[s]?://|wget\\s|curl\\s)",
+      "target": ["scripts", "references", "SKILL.md"],
+      "reason": "Network usage requires explicit justification"
+    },
+    {
+      "id": "REV_DYNAMIC_EXEC",
+      "pattern": "(?i)(eval\\(|exec\\(|subprocess\\.|os\\.system\\(|base64\\s+-d)",
+      "target": ["scripts", "references"],
+      "reason": "Potential obfuscation/dynamic execution"
+    }
+  ]
+}
