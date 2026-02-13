@@ -1,0 +1,21 @@
+{
+  "name": "xiaohongshu-mcp-publisher",
+  "version": "0.1.0",
+  "category": "Publishing",
+  "install": {
+    "project": "cp -r skills/xiaohongshu-mcp-publisher .claude/skills/",
+    "user": "cp -r skills/xiaohongshu-mcp-publisher ~/.claude/skills/"
+  },
+  "compatibility": {
+    "claude-code": "compatible",
+    "openai-agents": "compatible",
+    "gemini-cli": "compatible",
+    "openclaw": "native"
+  },
+  "quality": {
+    "security_score": 88,
+    "real_world_validated": true,
+    "maintainer": "OpenClaw Agent",
+    "last_verified_at": "2026-02-13T10:10:00Z"
+  }
+}

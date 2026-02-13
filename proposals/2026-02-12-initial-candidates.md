@@ -8,5 +8,6 @@
    - Purpose: generate images via API with pre-submit approval gate
 4. `xiaohongshu-mcp-publishing-playbook`
    - Purpose: stabilize QR-login + publish workflow for Xiaohongshu with pre-send approval
+   - Status: APPROVED (landed as `skills/xiaohongshu-mcp-publisher`)
 
-Status: pending review.
+Status: partial approved (see item 4).

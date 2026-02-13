@@ -87,11 +87,8 @@
 
 ## 来源声明（非原创必填）
 
-- Upstream repository: `luyike221/xiaohongshu-mcp-python`
+- Upstream repository: `xpzouying/xiaohongshu-mcp`
 - 本提案类型: 经验封装与流程治理（非上游官方功能说明）
 - 版本/提交: 待补（落库前补齐 commit SHA）
 - License: 待补（落库前补齐）
-- Local patches applied:
-  - 登录二维码缺失方法补齐
-  - 代理继承策略调整（避免 socksio 依赖崩溃）
-  - 发布校验策略按 owner 规则放宽（标题可空、图片上限 17）
+- 说明：`luyike221` 路线已移除，不再作为本技能实现基础。
