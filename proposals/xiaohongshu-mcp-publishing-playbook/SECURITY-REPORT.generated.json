@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-02-13T10:31:39.937549Z",
+  "target": "/data/repos/bxs-awesome-skills/skills/xiaohongshu-mcp-publisher",
+  "verdict": "PASS",
+  "score": 92,
+  "high_risk_count": 0,
+  "review_count": 1,
+  "findings": [
+    {
+      "rule_id": "REV_UNBOUNDED_NETWORK",
+      "severity": "REVIEW",
+      "file_path": "SKILL.md",
+      "line_start": 10,
+      "line_end": 10,
+      "evidence_snippet": "- 作者仓库地址：`https://github.com/xpzouying/xiaohongshu-mcp`",
+      "fix_hint": "Network usage requires explicit justification"
+    }
+  ]
+}

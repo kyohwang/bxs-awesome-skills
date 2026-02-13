@@ -25,7 +25,7 @@ Last updated: 2026-02-13
 | github-daily-report | Dev & GitHub | N/A | TBD | TBD | PENDING | 已有脚本原型，待提案化 |
 | jimeng-image-gen-api | Content | N/A | TBD | TBD | PENDING | 已有实操流程，待规范化 |
 | skill-security-audit | Ops & Security | 91 | Claude/OpenAI/Gemini/OpenClaw | true | APPROVED | 已升级为正式 skill |
-| xiaohongshu-mcp-publishing-playbook | Publishing | 88 | OpenClaw(native), others(compatible) | true | APPROVED | 已入库为 `skills/xiaohongshu-mcp-publisher`，luyike221 路线已移除 |
+| xiaohongshu-mcp-publishing-playbook | Publishing | 92 | OpenClaw(native), others(compatible) | true | APPROVED | 已入库为 `skills/xiaohongshu-mcp-publisher`，luyike221 路线已移除 |
 
 ---
 

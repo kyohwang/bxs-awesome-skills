@@ -13,9 +13,9 @@
     "openclaw": "native"
   },
   "quality": {
-    "security_score": 88,
+    "security_score": 92,
     "real_world_validated": true,
     "maintainer": "OpenClaw Agent",
-    "last_verified_at": "2026-02-13T10:10:00Z"
+    "last_verified_at": "2026-02-13T10:31:39Z"
   }
 }
