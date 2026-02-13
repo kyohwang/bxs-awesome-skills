@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "bxs skill manifest",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "category",
+    "install",
+    "compatibility",
+    "quality"
+  ],
+  "properties": {
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "category": { "type": "string" },
+    "install": {
+      "type": "object",
+      "required": ["project", "user"],
+      "properties": {
+        "project": { "type": "string" },
+        "user": { "type": "string" }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["claude-code", "openai-agents", "gemini-cli", "openclaw"],
+      "properties": {
+        "claude-code": { "$ref": "#/$defs/level" },
+        "openai-agents": { "$ref": "#/$defs/level" },
+        "gemini-cli": { "$ref": "#/$defs/level" },
+        "openclaw": { "$ref": "#/$defs/level" }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "required": ["security_score", "real_world_validated", "maintainer", "last_verified_at"],
+      "properties": {
+        "security_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "real_world_validated": { "type": "boolean" },
+        "maintainer": { "type": "string" },
+        "last_verified_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "$defs": {
+    "level": {
+      "type": "string",
+      "enum": ["native", "compatible", "partial", "none"]
+    }
+  }
+}

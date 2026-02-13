@@ -27,3 +27,13 @@ Define the output format and quality bar.
 
 - Keep operations safe and reversible when possible.
 - Ask before external side effects.
+
+## Required companion file
+
+Create `skill.json` next to `SKILL.md` and validate it against:
+`references/SKILL_MANIFEST.schema.json`
+
+`skill.json` must include:
+- install commands
+- compatibility labels (claude-code/openai-agents/gemini-cli/openclaw)
+- quality metrics (security_score, real_world_validated, maintainer, last_verified_at)

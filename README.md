@@ -6,38 +6,78 @@
 
 ## 中文
 
+**The most reliable curated skills armory for agents.**
+
 这是一个给 Agent 用的 **Skills 兵器谱**。
 
-灵感来自《兵器谱》：
-江湖不缺兵器，缺的是靠谱兵器。
-
+灵感来自《兵器谱》：江湖不缺兵器，缺的是靠谱兵器。  
 这个仓库不追求“收得多”，而追求“收得准”：
 - 分门别类
-- 安全靠谱
+- 安全靠谱（硬门槛）
 - 真实有效
 
-### 仓库定位
+## 你现在就能用（安装优先）
 
-- 它是一个 Skills 排行榜 + 搜集仓库
-- 它记录“什么技能好用、为什么好用、在什么场景最好用”
-- 它不是广告位，不收空壳技能
+### 方式 A：直接复制 skill 目录
 
-### 核心目标
+```bash
+# 示例：安装 skill-security-audit 到个人 Claude skills
+mkdir -p ~/.claude/skills
+cp -r skills/skill-security-audit ~/.claude/skills/
+```
 
-- 沉淀可复用的 Agent Skills
-- 提供统一结构、规范和审核流程
-- 以内容共享为主，只维护代码与文档
+### 方式 B：项目级安装（推荐团队）
 
-### 收录规则（当前生效）
+```bash
+mkdir -p .claude/skills
+cp -r skills/skill-security-audit .claude/skills/
+```
 
-1. 技能由维护者（Agent）提出候选
-2. 每个技能必须经过 Owner 明确审核同意
-3. 审核通过后才能进入 `skills/` 正式目录
-4. 默认 `main` 直推
+> 每个 skill 的具体安装方式，见 `skills/index.json` 的 `install` 字段。
 
-### 评分与排行（兵器谱）
+## 收录流程（标准化）
 
-后续将按以下维度维护排行榜：
+统一采用：
+
+`proposal -> security-audit -> owner approve -> skills/`
+
+详细规范：
+- `references/CONTRIBUTING.md`
+- `references/PROPOSAL_TEMPLATE.md`
+
+## 跨平台兼容标签
+
+每个 skill 必须声明兼容标签（`compatibility`）：
+- `claude-code`
+- `openai-agents`
+- `gemini-cli`
+- `openclaw`
+
+并标注等级：
+- `native`（官方原生）
+- `compatible`（可适配）
+- `partial`（部分支持）
+- `none`（不支持）
+
+结构定义见：`references/SKILL_MANIFEST.schema.json`
+
+## 质量指标（公开）
+
+每个 skill 必须公开：
+- `security_score`（安全分）
+- `real_world_validated`（是否实战验证）
+- `maintainer`（维护人）
+- `last_verified_at`（最近验证时间）
+
+同样写入 `skills/index.json` 和各 skill 的 `skill.json`，便于后续榜单化。
+
+## 仓库定位
+
+- 技能市场仓库（内容共享为主）
+- 排行榜是能力层，不是目的本身
+- 无实战价值技能不入库
+
+## 排名维度（未来榜单）
 
 - **有效性**：是否稳定解决真实问题
 - **安全性**：是否遵循最小权限、可审计、可回滚
@@ -45,9 +85,7 @@
 - **可维护性**：结构是否清晰，依赖是否可控
 - **实战反馈**：是否有真实使用记录与结果
 
-> 原则：宁缺毋滥。没有实战价值的技能，不进榜。
-
-### 分类体系（持续扩展）
+## 分类体系
 
 - 内容生产（Content）
 - 发布分发（Publishing）
@@ -56,7 +94,7 @@
 - 数据与研究（Data & Research）
 - 运维与安全（Ops & Security）
 
-### 目录结构
+## 目录结构
 
 ```text
 skills/           # 已审核通过的正式技能
@@ -66,95 +104,73 @@ references/       # 规范与参考文档
 scripts/          # 辅助脚本
 ```
 
-### 技能最小标准
-
-- 必须有 `SKILL.md`
-- 必须包含 frontmatter:
-  - `name`
-  - `description`
-- `description` 必须写清楚“何时触发”
-- 需要说明边界与风险（尤其是外部动作）
-
-### 当前状态
-
-- 已初始化技能市场骨架
-- 已启用候选审核流程（逐个确认）
-- 将逐步补齐“兵器谱排行榜”与分类索引
-
 ---
 
 ## English
 
-This is a **Skills Armory** for agents.
+**The most reliable curated skills armory for agents.**
 
-Inspired by classic weapon rankings: the world has many tools, but very few truly reliable ones.
+A marketplace repository for reusable, production-grade agent skills.
 
-This repo optimizes for quality over quantity:
-- Clear taxonomy
-- Safety and reliability
-- Real-world effectiveness
+This repository optimizes for quality over quantity:
+- clear taxonomy
+- security as a hard gate
+- real-world effectiveness
 
-### Positioning
+## Install-first usage
 
-- A skills leaderboard + curated collection
-- It records what works, why it works, and where it works best
-- Not a dumping ground for low-quality skills
+### Option A: copy into personal skills
 
-### Core Goals
-
-- Curate reusable Agent Skills
-- Provide consistent structure, standards, and review workflow
-- Focus on shared content (code + docs only)
-
-### Admission Policy (active)
-
-1. Candidate skills are proposed by the maintainer agent.
-2. Every skill requires explicit owner approval.
-3. Only approved skills can be moved into `skills/`.
-4. Default workflow: direct push to `main`.
-
-### Ranking Criteria (Armory Board)
-
-Leaderboard maintenance will use these dimensions:
-
-- **Effectiveness**: solves real tasks reliably
-- **Safety**: least privilege, auditable, reversible
-- **Reusability**: works across projects
-- **Maintainability**: clear structure and manageable dependencies
-- **Field feedback**: backed by real usage outcomes
-
-> Principle: quality first. No proven value, no ranking.
-
-### Taxonomy (expanding)
-
-- Content
-- Publishing
-- Automation
-- Dev & GitHub
-- Data & Research
-- Ops & Security
-
-### Repository Layout
-
-```text
-skills/           # approved production skills
-skills/_template/ # skill template
-proposals/        # pending skill proposals for review
-references/       # references and conventions
-scripts/          # helper scripts
+```bash
+mkdir -p ~/.claude/skills
+cp -r skills/skill-security-audit ~/.claude/skills/
 ```
 
-### Minimum Skill Requirements
+### Option B: project-local install
 
-- Must include `SKILL.md`
-- Must include frontmatter:
-  - `name`
-  - `description`
-- `description` must clearly state trigger contexts
-- Must document boundaries and risks (especially external side effects)
+```bash
+mkdir -p .claude/skills
+cp -r skills/skill-security-audit .claude/skills/
+```
 
-### Current Status
+> Per-skill install instructions are tracked in `skills/index.json`.
 
-- Marketplace skeleton initialized
-- Candidate review workflow active
-- Armory leaderboard and category index to be expanded incrementally
+## Admission pipeline (standardized)
+
+`proposal -> security-audit -> owner approve -> skills/`
+
+See:
+- `references/CONTRIBUTING.md`
+- `references/PROPOSAL_TEMPLATE.md`
+
+## Cross-platform compatibility labels
+
+Every skill must declare compatibility for:
+- `claude-code`
+- `openai-agents`
+- `gemini-cli`
+- `openclaw`
+
+with levels:
+- `native`
+- `compatible`
+- `partial`
+- `none`
+
+Schema: `references/SKILL_MANIFEST.schema.json`
+
+## Public quality metrics
+
+Every skill must publish:
+- `security_score`
+- `real_world_validated`
+- `maintainer`
+- `last_verified_at`
+
+Stored in both per-skill `skill.json` and root `skills/index.json`.
+
+## Positioning
+
+- marketplace-first, content-sharing oriented
+- leaderboard is an output, not the goal
+- no proven value, no admission

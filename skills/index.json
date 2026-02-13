@@ -1,0 +1,26 @@
+{
+  "updated_at": "2026-02-13T01:35:00Z",
+  "skills": [
+    {
+      "name": "skill-security-audit",
+      "path": "skills/skill-security-audit",
+      "category": "Ops & Security",
+      "install": {
+        "project": "cp -r skills/skill-security-audit .claude/skills/",
+        "user": "cp -r skills/skill-security-audit ~/.claude/skills/"
+      },
+      "compatibility": {
+        "claude-code": "native",
+        "openai-agents": "compatible",
+        "gemini-cli": "compatible",
+        "openclaw": "native"
+      },
+      "quality": {
+        "security_score": 91,
+        "real_world_validated": true,
+        "maintainer": "OpenClaw Agent",
+        "last_verified_at": "2026-02-13T01:35:00Z"
+      }
+    }
+  ]
+}
