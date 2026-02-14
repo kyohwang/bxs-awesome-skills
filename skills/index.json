@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-14T01:45:00Z",
+  "updated_at": "2026-02-13T10:15:00Z",
   "skills": [
     {
       "name": "skill-security-audit",
@@ -41,27 +41,6 @@
         "real_world_validated": true,
         "maintainer": "OpenClaw Agent",
         "last_verified_at": "2026-02-13T10:31:39Z"
-      }
-    },
-    {
-      "name": "turn-brain-teaser-publisher",
-      "path": "skills/turn-brain-teaser-publisher",
-      "category": "Content",
-      "install": {
-        "project": "cp -r skills/turn-brain-teaser-publisher .claude/skills/",
-        "user": "cp -r skills/turn-brain-teaser-publisher ~/.claude/skills/"
-      },
-      "compatibility": {
-        "claude-code": "compatible",
-        "openai-agents": "compatible",
-        "gemini-cli": "compatible",
-        "openclaw": "native"
-      },
-      "quality": {
-        "security_score": 86,
-        "real_world_validated": false,
-        "maintainer": "OpenClaw Agent",
-        "last_verified_at": "2026-02-14T01:45:00Z"
       }
     }
   ]
