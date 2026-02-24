@@ -1,0 +1,21 @@
+{
+  "name": "github-daily-report",
+  "version": "0.1.0",
+  "category": "Dev & GitHub",
+  "install": {
+    "project": "cp -r skills/github-daily-report .claude/skills/",
+    "user": "cp -r skills/github-daily-report ~/.claude/skills/"
+  },
+  "compatibility": {
+    "claude-code": "compatible",
+    "openai-agents": "compatible",
+    "gemini-cli": "compatible",
+    "openclaw": "native"
+  },
+  "quality": {
+    "security_score": 0,
+    "real_world_validated": true,
+    "maintainer": "OpenClaw Agent",
+    "last_verified_at": ""
+  }
+}
