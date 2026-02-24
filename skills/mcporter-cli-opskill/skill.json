@@ -1,0 +1,25 @@
+{
+  "name": "mcporter-cli-opskill",
+  "version": "0.1.0",
+  "category": "Automation",
+  "source": {
+    "upstream": "https://github.com/openclaw/openclaw/tree/main/skills/mcporter",
+    "reference": "/usr/lib/node_modules/openclaw/skills/mcporter/SKILL.md"
+  },
+  "install": {
+    "project": "cp -r skills/mcporter-cli-opskill .claude/skills/",
+    "user": "cp -r skills/mcporter-cli-opskill ~/.claude/skills/"
+  },
+  "compatibility": {
+    "claude-code": "compatible",
+    "openai-agents": "compatible",
+    "gemini-cli": "compatible",
+    "openclaw": "native"
+  },
+  "quality": {
+    "security_score": 92,
+    "real_world_validated": true,
+    "maintainer": "OpenClaw Agent",
+    "last_verified_at": "2026-02-24T19:31:31Z"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-02-24T19:31:31.632068Z",
+  "target": "/data/repos/bxs-awesome-skills/proposals/mcporter-cli-opskill/candidate",
+  "verdict": "PASS",
+  "score": 92,
+  "high_risk_count": 0,
+  "review_count": 1,
+  "findings": [
+    {
+      "rule_id": "REV_UNBOUNDED_NETWORK",
+      "severity": "REVIEW",
+      "file_path": "skill.json",
+      "line_start": 6,
+      "line_end": 6,
+      "evidence_snippet": "    \"upstream\": \"https://github.com/openclaw/openclaw/tree/main/skills/mcporter\",",
+      "fix_hint": "Network usage requires explicit justification"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[mcporter] Missing server name. Provide it via <server>.<tool> or --server.
+Error: Missing server name. Provide it via <server>.<tool> or --server.
+    at resolveCallTarget (file:///usr/lib/node_modules/mcporter/dist/cli/call-command.js:181:15)
+    at handleCall (file:///usr/lib/node_modules/mcporter/dist/cli/call-command.js:58:20)
+    at async runCli (file:///usr/lib/node_modules/mcporter/dist/cli.js:143:13)
+    at async main (file:///usr/lib/node_modules/mcporter/dist/cli.js:201:5)
+Unknown MCP server '__not_exist__'.

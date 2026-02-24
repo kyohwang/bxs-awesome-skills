@@ -21,9 +21,12 @@
 ### 方式 A：直接复制 skill 目录
 
 ```bash
-# 示例：安装 skill-security-audit 到个人 Claude skills
+# 示例 1：安装 skill-security-audit 到个人 Claude skills
 mkdir -p ~/.claude/skills
 cp -r skills/skill-security-audit ~/.claude/skills/
+
+# 示例 2：安装 mcporter-cli-opskill 到个人 Claude skills
+cp -r skills/mcporter-cli-opskill ~/.claude/skills/
 ```
 
 ### 方式 B：项目级安装（推荐团队）
@@ -124,6 +127,7 @@ This repository optimizes for quality over quantity:
 ```bash
 mkdir -p ~/.claude/skills
 cp -r skills/skill-security-audit ~/.claude/skills/
+cp -r skills/mcporter-cli-opskill ~/.claude/skills/
 ```
 
 ### Option B: project-local install
