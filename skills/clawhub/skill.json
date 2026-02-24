@@ -1,0 +1,26 @@
+{
+  "name": "clawhub",
+  "version": "0.1.0",
+  "category": "Automation",
+  "source": {
+    "type": "openclaw-official-skill",
+    "path": "/usr/lib/node_modules/openclaw/skills/clawhub/SKILL.md",
+    "upstream": "clawhub.com"
+  },
+  "install": {
+    "project": "cp -r skills/clawhub .claude/skills/",
+    "user": "cp -r skills/clawhub ~/.claude/skills/"
+  },
+  "compatibility": {
+    "claude-code": "compatible",
+    "openai-agents": "compatible",
+    "gemini-cli": "compatible",
+    "openclaw": "native"
+  },
+  "quality": {
+    "security_score": 100,
+    "real_world_validated": true,
+    "maintainer": "OpenClaw Agent",
+    "last_verified_at": "2026-02-24T22:32:30Z"
+  }
+}

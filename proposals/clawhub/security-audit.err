@@ -1,0 +1,2 @@
+/data/repos/bxs-awesome-skills/skills/skill-security-audit/scripts/skill_security_audit.py:78: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "generated_at": datetime.datetime.utcnow().isoformat() + "Z",

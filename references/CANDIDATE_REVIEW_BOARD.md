@@ -3,7 +3,7 @@
 > 说明：这是“可读审核页”，用于在网站化之前统一查看候选技能状态。
 > 入选硬门槛：通过安全审计（无 BLOCK）+ Owner 明确批准。
 
-Last updated: 2026-02-13
+Last updated: 2026-02-24
 
 ---
 
@@ -26,6 +26,7 @@ Last updated: 2026-02-13
 | jimeng-image-gen-api | Content | N/A | TBD | TBD | PENDING | 已有实操流程，待规范化 |
 | skill-security-audit | Ops & Security | 91 | Claude/OpenAI/Gemini/OpenClaw | true | APPROVED | 已升级为正式 skill |
 | xiaohongshu-mcp-publishing-playbook | Publishing | 92 | OpenClaw(native), others(compatible) | true | APPROVED | 已入库为 `skills/xiaohongshu-mcp-publisher`，luyike221 路线已移除 |
+| clawhub | Automation | 100 | OpenClaw(native), others(compatible) | true | APPROVED | 来源 OpenClaw 官方技能，已完成可用性与安全审计并入库 |
 
 ---
 
@@ -75,6 +76,21 @@ Last updated: 2026-02-13
   - 已按 owner 指令入库
   - 使用 `xiaohongshu-mcp` 路线
   - `luyike221` 路线已移除
+
+### 6) clawhub
+
+- 状态：`APPROVED`
+- 安全分：`100`
+- 关键证据：
+  - `proposals/clawhub/PROPOSAL.md`
+  - `proposals/clawhub/TEST-REPORT.md`
+  - `proposals/clawhub/SECURITY-REPORT.generated.json`
+- 正式技能：
+  - `skills/clawhub/`
+- 结论：
+  - 来源为 OpenClaw 官方 `clawhub` 技能
+  - 可用性测试通过（安装、最小示例、关键边界）
+  - 安全审计通过，可入库
 
 ---
 

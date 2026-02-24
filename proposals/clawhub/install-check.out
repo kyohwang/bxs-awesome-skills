@@ -1,0 +1,5 @@
+total 256
+drwxr-x--x 2 root root 4096 Feb 24 22:31 .
+drwxr-xr-x 3 root root 4096 Feb 24 22:31 ..
+-rw-r----- 1 root root 1613 Feb 24 22:31 SKILL.md
+-rw-r----- 1 root root  661 Feb 24 22:31 skill.json

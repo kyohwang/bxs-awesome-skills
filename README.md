@@ -25,8 +25,8 @@
 mkdir -p ~/.claude/skills
 cp -r skills/skill-security-audit ~/.claude/skills/
 
-# 示例 2：安装 mcporter-cli-opskill 到个人 Claude skills
-cp -r skills/mcporter-cli-opskill ~/.claude/skills/
+# 示例 2：安装 clawhub 到个人 Claude skills
+cp -r skills/clawhub ~/.claude/skills/
 ```
 
 ### 方式 B：项目级安装（推荐团队）
