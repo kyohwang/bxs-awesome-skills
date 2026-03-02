@@ -1,0 +1,104 @@
+version: 1
+updated_at: 2026-03-02
+language_policy:
+  primary: zh-CN
+  secondary_optional: en
+
+categories:
+  - id: dev-coding
+    order: 10
+    name:
+      zh: 我想写代码/修 Bug
+      en: Code and Debug
+    description:
+      zh: 面向开发、重构、测试、调试、代码质量提升等任务。
+      en: For coding, refactoring, testing, debugging, and code quality.
+    sample_tags:
+      - coding
+      - debugging
+      - testing
+      - architecture
+
+  - id: automation-agent
+    order: 20
+    name:
+      zh: 我想自动执行任务
+      en: Automation and Agent Workflows
+    description:
+      zh: 面向批处理、工作流编排、跨工具自动化和任务调度。
+      en: For workflow automation, orchestration, and scheduled tasks.
+    sample_tags:
+      - automation
+      - workflow
+      - agent
+      - integration
+
+  - id: research-content
+    order: 30
+    name:
+      zh: 我想做研究与信息整理
+      en: Research and Knowledge Work
+    description:
+      zh: 面向检索、资料整理、总结写作、信息核验。
+      en: For search, summarization, writing, and fact verification.
+    sample_tags:
+      - search
+      - summarization
+      - writing
+      - citation
+
+  - id: data-analytics
+    order: 40
+    name:
+      zh: 我想处理数据
+      en: Data and Analytics
+    description:
+      zh: 面向表格处理、数据库查询、数据清洗、可视化分析。
+      en: For spreadsheets, SQL, data processing, and visualization.
+    sample_tags:
+      - csv
+      - sql
+      - etl
+      - visualization
+
+  - id: design-media
+    order: 50
+    name:
+      zh: 我想做内容与设计
+      en: Content and Media
+    description:
+      zh: 面向图像、视频、文案、品牌内容产出与编辑。
+      en: For image/video creation, copywriting, and brand content.
+    sample_tags:
+      - image
+      - video
+      - content
+      - branding
+
+  - id: collaboration-office
+    order: 60
+    name:
+      zh: 我想做协作与办公
+      en: Collaboration and Office
+    description:
+      zh: 面向文档协作、会议分析、消息沟通、团队协同。
+      en: For docs, meeting insights, communication, and teamwork.
+    sample_tags:
+      - docs
+      - meeting
+      - communication
+      - project-management
+
+  - id: security-systems
+    order: 70
+    name:
+      zh: 我关心安全与系统管理
+      en: Security and Systems
+    description:
+      zh: 面向安全审计、运维、合规检查、系统诊断与治理。
+      en: For security audit, DevOps, compliance, and system operations.
+    sample_tags:
+      - security
+      - compliance
+      - ops
+      - forensics

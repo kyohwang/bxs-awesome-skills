@@ -1,180 +1,87 @@
 # bxs-awesome-skills
 
-[中文](#中文) | [English](#english)
+高质量 Skills 索引与评估库，面向人类用户与 AI Agent。  
+目标是让你在最短时间内判断：**这个 skill 值不值得安装**。
 
----
+> Language policy: 中文为主，英文可选补充。
 
-## 中文
+## 快速开始
 
-**The most reliable curated skills armory for agents.**
+1. 按“你要完成的任务”进入分类目录。
+2. 先看标签：`状态`、`安全等级`、`安装复杂度`、`维护活跃度`。
+3. 打开 skill 详情页，确认最简安装与评论摘要后再安装。
 
-这是一个给 Agent 用的 **Skills 兵器谱**。
+## 快速决策筛选
 
-灵感来自《兵器谱》：江湖不缺兵器，缺的是靠谱兵器。  
-这个仓库不追求“收得多”，而追求“收得准”：
-- 分门别类
-- 安全靠谱（硬门槛）
-- 真实有效
+- `推荐安装`：`status=verified` 且 `security_grade=A/B` 且 `quality_score>=75`
+- `安装最简单`：`install_complexity=low`
+- `近期活跃`：`last_verified_at<=30 天` 且上游最近提交 `<=90 天`
+- `低风险优先`：`security_grade=A/B`
 
-## 你现在就能用（安装优先）
+## 分类目录（用户目标导向）
 
-### 方式 A：直接复制 skill 目录
+### 我想写代码/修 Bug
 
-```bash
-# 示例 1：安装 skill-security-audit 到个人 Claude skills
-mkdir -p ~/.claude/skills
-cp -r skills/skill-security-audit ~/.claude/skills/
+- [GitHub 每日三段式日报](skills/github-daily-report/README.md) - 生成总榜/增长榜/新锐榜日报 | `[状态:under_review] [安全:D] [安装:medium] [来源:local]`
+- [MCPorter CLI 操作技能](skills/mcporter-cli-opskill/README.md) - MCP 工具可审计调用与检查 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
 
-# 示例 2：安装 clawhub 到个人 Claude skills
-cp -r skills/clawhub ~/.claude/skills/
-```
+### 我想自动执行任务
 
-### 方式 B：项目级安装（推荐团队）
+- [ClawHub CLI 技能](skills/clawhub/README.md) - 检索、安装、更新、发布 skills | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
+- [MCPorter CLI 操作技能](skills/mcporter-cli-opskill/README.md) - MCP 工具可审计调用与检查 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
+- [小红书 MCP 发布助手](skills/xiaohongshu-mcp-publisher/README.md) - 先审后发的小红书发布流程 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
 
-```bash
-mkdir -p .claude/skills
-cp -r skills/skill-security-audit .claude/skills/
-```
+### 我想做研究与信息整理
 
-> 每个 skill 的具体安装方式，见 `skills/index.json` 的 `install` 字段。
+- [GitHub 每日三段式日报](skills/github-daily-report/README.md) - 技术情报日报生成 | `[状态:under_review] [安全:D] [安装:medium] [来源:local]`
 
-## 收录流程（标准化）
+### 我想处理数据
+
+- 暂无条目（待收录）
+
+### 我想做内容与设计
+
+- [小红书 MCP 发布助手](skills/xiaohongshu-mcp-publisher/README.md) - 图文发布编排与诊断 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
+
+### 我想做协作与办公
+
+- [ClawHub CLI 技能](skills/clawhub/README.md) - 团队级技能分发与升级 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
+
+### 我关心安全与系统管理
+
+- [Skill 安全审计](skills/skill-security-audit/README.md) - 提案技能安全准入与复审 | `[状态:verified] [安全:A] [安装:low] [来源:local]`
+
+## 收录流程（硬门槛）
 
 统一采用：
 
 `proposal -> security-audit -> owner approve -> skills/`
 
 详细规范：
+
 - `references/CONTRIBUTING.md`
 - `references/PROPOSAL_TEMPLATE.md`
+- `references/SKILL_MANIFEST.schema.json`
 
-## 跨平台兼容标签
+## 元数据与兼容说明
 
-每个 skill 必须声明兼容标签（`compatibility`）：
-- `claude-code`
-- `openai-agents`
-- `gemini-cli`
-- `openclaw`
+当前仓库同时维护两套索引：
 
-并标注等级：
-- `native`（官方原生）
-- `compatible`（可适配）
-- `partial`（部分支持）
-- `none`（不支持）
+- 旧索引：`skills/index.json`（保持兼容）
+- 新索引：`catalog/skills.yaml`（面向发现、评估与治理）
 
-结构定义见：`references/SKILL_MANIFEST.schema.json`
-
-## 质量指标（公开）
-
-每个 skill 必须公开：
-- `security_score`（安全分）
-- `real_world_validated`（是否实战验证）
-- `maintainer`（维护人）
-- `last_verified_at`（最近验证时间）
-
-同样写入 `skills/index.json` 和各 skill 的 `skill.json`，便于后续榜单化。
-
-## 仓库定位
-
-- 技能市场仓库（内容共享为主）
-- 排行榜是能力层，不是目的本身
-- 无实战价值技能不入库
-
-## 排名维度（未来榜单）
-
-- **有效性**：是否稳定解决真实问题
-- **安全性**：是否遵循最小权限、可审计、可回滚
-- **可复用性**：是否能跨项目重复使用
-- **可维护性**：结构是否清晰，依赖是否可控
-- **实战反馈**：是否有真实使用记录与结果
-
-## 分类体系
-
-- 内容生产（Content）
-- 发布分发（Publishing）
-- 自动化流程（Automation）
-- 开发协作（Dev & GitHub）
-- 数据与研究（Data & Research）
-- 运维与安全（Ops & Security）
+分类配置：`catalog/categories.yaml`  
+技能页模板：`templates/skill-profile.template.md`  
+产品需求文档：`prd.md`
 
 ## 目录结构
 
 ```text
-skills/           # 已审核通过的正式技能
-skills/_template/ # 技能模板
+skills/           # 已审核通过或待复审技能（含 SKILL.md 与 skill.json）
+skills/_template/ # 技能模板（历史）
 proposals/        # 待审核候选技能说明
 references/       # 规范与参考文档
-scripts/          # 辅助脚本
+catalog/          # 新版分类与技能索引
+templates/        # 新版技能详情页模板
+comments/         # 已审核评论摘要
 ```
-
----
-
-## English
-
-**The most reliable curated skills armory for agents.**
-
-A marketplace repository for reusable, production-grade agent skills.
-
-This repository optimizes for quality over quantity:
-- clear taxonomy
-- security as a hard gate
-- real-world effectiveness
-
-## Install-first usage
-
-### Option A: copy into personal skills
-
-```bash
-mkdir -p ~/.claude/skills
-cp -r skills/skill-security-audit ~/.claude/skills/
-cp -r skills/mcporter-cli-opskill ~/.claude/skills/
-```
-
-### Option B: project-local install
-
-```bash
-mkdir -p .claude/skills
-cp -r skills/skill-security-audit .claude/skills/
-```
-
-> Per-skill install instructions are tracked in `skills/index.json`.
-
-## Admission pipeline (standardized)
-
-`proposal -> security-audit -> owner approve -> skills/`
-
-See:
-- `references/CONTRIBUTING.md`
-- `references/PROPOSAL_TEMPLATE.md`
-
-## Cross-platform compatibility labels
-
-Every skill must declare compatibility for:
-- `claude-code`
-- `openai-agents`
-- `gemini-cli`
-- `openclaw`
-
-with levels:
-- `native`
-- `compatible`
-- `partial`
-- `none`
-
-Schema: `references/SKILL_MANIFEST.schema.json`
-
-## Public quality metrics
-
-Every skill must publish:
-- `security_score`
-- `real_world_validated`
-- `maintainer`
-- `last_verified_at`
-
-Stored in both per-skill `skill.json` and root `skills/index.json`.
-
-## Positioning
-
-- marketplace-first, content-sharing oriented
-- leaderboard is an output, not the goal
-- no proven value, no admission

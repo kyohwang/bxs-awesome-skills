@@ -1,0 +1,135 @@
+version: 1
+updated_at: 2026-03-02
+language_policy:
+  primary: zh-CN
+  secondary_optional: en
+
+skills:
+  - slug: skill-security-audit
+    name:
+      zh: Skill 安全审计
+      en: Skill Security Audit
+    summary:
+      zh: 对候选技能执行静态与规则化安全审计，给出 PASS/REVIEW/BLOCK 结论。
+      en: Security audit for candidate skills with deterministic verdicts.
+    source_type: local
+    source_url: null
+    local_path: skills/skill-security-audit
+    profile_path: skills/skill-security-audit/README.md
+    category:
+      - 我关心安全与系统管理
+    tags:
+      - security
+      - audit
+      - governance
+    status: verified
+    install_complexity: low
+    quality_score: 88
+    security_score: 91
+    security_grade: A
+    maintainer: OpenClaw Agent
+    last_verified_at: 2026-02-13T01:35:00Z
+
+  - slug: xiaohongshu-mcp-publisher
+    name:
+      zh: 小红书 MCP 发布助手
+      en: Xiaohongshu MCP Publisher
+    summary:
+      zh: 基于 xiaohongshu-mcp 的先审后发流程技能，覆盖登录检查、内容组装和发布回传。
+      en: Publish workflow skill for xiaohongshu-mcp with pre-review gates.
+    source_type: local
+    source_url: https://github.com/xpzouying/xiaohongshu-mcp
+    local_path: skills/xiaohongshu-mcp-publisher
+    profile_path: skills/xiaohongshu-mcp-publisher/README.md
+    category:
+      - 我想做内容与设计
+      - 我想自动执行任务
+    tags:
+      - xiaohongshu
+      - publishing
+      - mcp
+    status: verified
+    install_complexity: medium
+    quality_score: 82
+    security_score: 92
+    security_grade: A
+    maintainer: OpenClaw Agent
+    last_verified_at: 2026-02-13T10:31:39Z
+
+  - slug: mcporter-cli-opskill
+    name:
+      zh: MCPorter CLI 操作技能
+      en: MCPorter CLI Opskill
+    summary:
+      zh: 使用 mcporter 对 MCP server 进行只读检查与可审计工具调用。
+      en: Auditable MCP tool operations and inspections via mcporter CLI.
+    source_type: local
+    source_url: https://github.com/openclaw/openclaw/tree/main/skills/mcporter
+    local_path: skills/mcporter-cli-opskill
+    profile_path: skills/mcporter-cli-opskill/README.md
+    category:
+      - 我想自动执行任务
+      - 我想写代码/修 Bug
+    tags:
+      - mcp
+      - cli
+      - automation
+    status: verified
+    install_complexity: medium
+    quality_score: 84
+    security_score: 92
+    security_grade: A
+    maintainer: OpenClaw Agent
+    last_verified_at: 2026-02-24T19:31:31Z
+
+  - slug: clawhub
+    name:
+      zh: ClawHub CLI 技能
+      en: ClawHub CLI
+    summary:
+      zh: 使用 clawhub CLI 进行技能检索、安装、更新与发布。
+      en: Search, install, update, and publish skills via clawhub CLI.
+    source_type: local
+    source_url: https://clawhub.ai
+    local_path: skills/clawhub
+    profile_path: skills/clawhub/README.md
+    category:
+      - 我想自动执行任务
+      - 我想做协作与办公
+    tags:
+      - clawhub
+      - registry
+      - cli
+    status: verified
+    install_complexity: medium
+    quality_score: 90
+    security_score: 100
+    security_grade: A
+    maintainer: OpenClaw Agent
+    last_verified_at: 2026-02-24T22:32:30Z
+
+  - slug: github-daily-report
+    name:
+      zh: GitHub 每日三段式日报
+      en: GitHub Daily Report
+    summary:
+      zh: 生成 GitHub 总榜/增长榜/新锐榜三段式中文日报。
+      en: Generate Chinese daily GitHub reports with three ranking sections.
+    source_type: local
+    source_url: null
+    local_path: skills/github-daily-report
+    profile_path: skills/github-daily-report/README.md
+    category:
+      - 我想写代码/修 Bug
+      - 我想做研究与信息整理
+    tags:
+      - github
+      - report
+      - analysis
+    status: under_review
+    install_complexity: medium
+    quality_score: 60
+    security_score: 0
+    security_grade: D
+    maintainer: OpenClaw Agent
+    last_verified_at: null
