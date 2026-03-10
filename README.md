@@ -1,67 +1,44 @@
 # bxs-awesome-skills
 
-高质量 Skills 索引与评估库，面向人类用户与 AI Agent。  
-目标是让你在最短时间内判断：**这个 skill 值不值得安装**。
+先判断一个 skill 值不值得装，再决定怎么装。
 
-## 使用方法
+## 怎么选
 
-1. 按“你要完成的任务”进入分类目录。
-2. 先看标签：`状态`、`安全等级`、`安装复杂度`、`维护活跃度`。
-3. 打开 skill 详情页，确认最简安装与评论摘要后再安装。
+1. 先看 `状态`：优先 `verified`。
+2. 再看 `安全` 和 `来源`：优先 `A/B`，且有公开上游。
+3. 最后看 `安装成本` 和 `权限边界`：先试 `low`，再决定是否接入更重的 skill。
 
-## 快速筛选
+## 快速索引
 
-- `推荐安装`：`status=verified` 且 `security_grade=A/B` 且 `quality_score>=75`
-- `安装最简单`：`install_complexity=low`
-- `近期活跃`：`last_verified_at<=30 天` 且上游最近提交 `<=90 天`
-- `低风险优先`：`security_grade=A/B`
+| Skill | 解决什么问题 | 状态 | 安全 | 安装 | 来源 |
+| --- | --- | --- | --- | --- | --- |
+| [ClawHub CLI 技能](skills/clawhub/README.md) | 搜索、安装、更新、发布 skills | `verified` | `A` | `medium` | 本地收录 / `clawhub.ai` |
+| [Skill 安全审计](skills/skill-security-audit/README.md) | 对候选 skill 做安全准入审计 | `verified` | `A` | `low` | 本地收录 |
+| [MCPorter CLI 操作技能](skills/mcporter-cli-opskill/README.md) | 以可审计方式调用 MCP 工具 | `verified` | `A` | `medium` | 本地收录 / OpenClaw 上游 |
+| [小红书 MCP 发布助手](skills/xiaohongshu-mcp-publisher/README.md) | 先审后发的小红书发布流程 | `verified` | `A` | `medium` | 本地收录 / GitHub 上游 |
+| [GitHub 每日三段式日报](skills/github-daily-report/README.md) | 生成 GitHub 中文日报 | `under_review` | `D` | `medium` | 本地收录 |
 
-## 标签说明
+## 先看这几类
 
-- `状态`：`candidate / under_review / verified / deprecated / archived`
-- `安全`：`A / B / C / D`（前台仅展示等级）
-- `安装`：`low / medium / high`
-- `来源`：`local / external`
+- `推荐安装`：`clawhub`、`skill-security-audit`、`mcporter-cli-opskill`
+- `安装最轻`：`skill-security-audit`
+- `需要谨慎`：`github-daily-report`
 
-## 技能目录
+## 给 Agent 的稳定入口
 
-### 代码与调试
+- 源数据：[`catalog/skills.yaml`](catalog/skills.yaml)、[`catalog/categories.yaml`](catalog/categories.yaml)
+- 兼容层：[`skills/index.json`](skills/index.json)
+- Cloudflare Pages 构建后：`/data/skills.json`、`/data/categories.json`、`/data/skills/<slug>.json`
 
-- [GitHub 每日三段式日报](skills/github-daily-report/README.md) - 生成总榜/增长榜/新锐榜日报 | `[状态:under_review] [安全:D] [安装:medium] [来源:local]`
-- [MCPorter CLI 操作技能](skills/mcporter-cli-opskill/README.md) - MCP 工具可审计调用与检查 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
+## Cloudflare Pages
 
-### 自动化执行
+- 构建命令：`python3 scripts/build_site.py`
+- 输出目录：`dist`
+- 站点目标：人类可快速浏览，Agent 可直接抓取稳定 JSON
 
-- [ClawHub CLI 技能](skills/clawhub/README.md) - 检索、安装、更新、发布 skills | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
-- [MCPorter CLI 操作技能](skills/mcporter-cli-opskill/README.md) - MCP 工具可审计调用与检查 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
-- [小红书 MCP 发布助手](skills/xiaohongshu-mcp-publisher/README.md) - 先审后发的小红书发布流程 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
+## 收录规则
 
-### 研究与信息整理
-
-- [GitHub 每日三段式日报](skills/github-daily-report/README.md) - 技术情报日报生成 | `[状态:under_review] [安全:D] [安装:medium] [来源:local]`
-
-### 数据处理
-
-- 暂无条目（待收录）
-
-### 内容与发布
-
-- [小红书 MCP 发布助手](skills/xiaohongshu-mcp-publisher/README.md) - 图文发布编排与诊断 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
-
-### 协作与办公
-
-- [ClawHub CLI 技能](skills/clawhub/README.md) - 团队级技能分发与升级 | `[状态:verified] [安全:A] [安装:medium] [来源:local]`
-
-### 安全与系统
-
-- [Skill 安全审计](skills/skill-security-audit/README.md) - 提案技能安全准入与复审 | `[状态:verified] [安全:A] [安装:low] [来源:local]`
-
-## 安装
-
-- 项目级安装：`cp -r skills/<slug> .claude/skills/`
-- 用户级安装：`cp -r skills/<slug> ~/.claude/skills/`
-- 具体依赖与最简步骤：见各技能页面
-
-## 贡献
-
-- 新技能提案与审核流程：`references/CONTRIBUTING.md`
+- 新技能必须先进入 `proposals/`
+- 必须通过 `skill-security-audit`，不能有 `BLOCK`
+- 必须由 Owner 明确批准后才能进入 `skills/`
+- 收录时同步更新 `catalog/skills.yaml`、`skills/index.json` 和 `comments/<slug>.yaml`

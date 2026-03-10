@@ -26,20 +26,29 @@ last_verified_at: 2026-02-13T10:31:39Z
 
 # 小红书 MCP 发布助手
 
-## 1. 适用场景
+> 当你要做“小红书内容先审后发”，而且希望把登录、诊断和发布边界固定下来时，它很有价值。
 
-- 小红书图文内容需要“先审后发”时
+## 快速判断
+
+- 值不值得装：推荐安装。适合对发布流程有审核要求的内容团队。
+- 最适合：图文内容编排、登录检查、发布前复核和失败诊断。
+- 来源：本地收录，公开上游为 `https://github.com/xpzouying/xiaohongshu-mcp`。
+- 安全：`A`，强制先审后发；真正的外部变更只发生在发布确认后。
+- 上手成本：`medium`，需要可访问 `xiaohongshu-mcp` 服务并准备登录态。
+
+## 适合场景
+
+- 小红书图文内容需要先审后发时
 - 批量按目录规范组装发布内容时
 - 发布失败后需要标准化诊断和重试建议时
 
-## 2. 核心功能
+## 核心价值
 
-1. 服务健康检查 + 登录态检查。
-2. 二维码登录与状态轮询。
-3. 读取 `pages/<区间>/` 内容，按规范生成发布请求。
-4. Owner 明确确认后调用发布接口。
+1. 把健康检查、登录检查、内容组装和发布确认串成固定流程，减少漏步。
+2. 发布动作被明确放在最后一步，降低误发风险。
+3. 失败时能回到统一诊断入口，而不是靠临时排查。
 
-## 3. 最简安装（3 步）
+## 最小上手
 
 ```bash
 mkdir -p .claude/skills
@@ -47,38 +56,47 @@ cp -r skills/xiaohongshu-mcp-publisher .claude/skills/
 # 按 SKILL.md 完成服务地址与登录准备
 ```
 
-## 4. 使用方式
+安装后验证：
+
+```bash
+curl -s <service_base>/health
+```
+
+## 使用示例
 
 标准流程：
 
-1. `GET /health`
-2. `GET /api/v1/login/status`
-3. 必要时 `GET /api/v1/login/qrcode`
-4. 审核内容后 `POST /api/v1/publish`
+```text
+1. GET /health
+2. GET /api/v1/login/status
+3. 必要时 GET /api/v1/login/qrcode
+4. 审核内容后 POST /api/v1/publish
+```
 
-## 5. 依赖与权限
+发布前检查：
+
+```text
+先确认登录状态、内容目录和 owner 明确授权，再执行 publish。
+```
+
+## 依赖与边界
 
 - 运行依赖：可访问 `xiaohongshu-mcp` HTTP 服务
+- 环境变量：按部署方式决定
 - 网络访问：需要
 - 文件系统权限：读取 `pages/<区间>/` 内容文件
-- 敏感操作：外部平台发布（必须 owner 明确确认）
+- 敏感操作：会对外平台发布内容，必须 owner 明确确认
 
-## 6. 安全信息
-
-- 安全等级：`A`
-- 依据摘要：强制先审后发、登录状态校验、流程边界清晰
-
-## 7. 维护状态
+## 信任与维护
 
 - 当前状态：`verified`
-- 上游仓库：`https://github.com/xpzouying/xiaohongshu-mcp`
+- 来源类型：`local`，公开上游为 `xpzouying/xiaohongshu-mcp`
 - 维护者：`OpenClaw Agent`
-- 最近验证日期：`2026-02-13T10:31:39Z`
+- 最近验证日期：`2026-02-13`
+- 兼容性：`Claude Code(compatible)`、`OpenAI Agents(compatible)`、`Gemini CLI(compatible)`、`OpenClaw(native)`
 
-## 8. 评论摘要（默认 3 条）
+## 审核与反馈
 
-- 暂无已审核评论，详见 `comments/xiaohongshu-mcp-publisher.yaml`
-
-## 9. 审核记录
-
-- `2026-02-13` 收录并完成安全审计
+- 审核结论：推荐给有明确审核边界的内容发布流程使用。
+- 已审核评论：暂无，见 `comments/xiaohongshu-mcp-publisher.yaml`
+- 审核记录：`2026-02-13` 收录并完成安全审计
