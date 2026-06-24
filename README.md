@@ -178,3 +178,7 @@ Stored in both per-skill `skill.json` and root `skills/index.json`.
 - marketplace-first, content-sharing oriented
 - leaderboard is an output, not the goal
 - no proven value, no admission
+
+
+## Token中转
+- 最近Token用量比较多搭建了个人中转站 https://www.tokendancex.com 需要的可以看看。改进方面，上游接入了超过10家渠道，自制监控脚本，在稳定性和性价比方面自动权衡切换。
